@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+        	body {margin:0; padding:0;}
+     
+        	#cards {
+        		padding: 25px 0;
+	        	border-bottom: black 3px solid;
+        	}
+        	
+           .cardFront {text-align: center;}
+            
+           .card {
+	            height: 100px;
+	            padding: 40px 0;
+	            border-radius: 10px;
+	            cursor: pointer;
+            }
+            
+           .cardBack{
+	            padding:15px;
+	            display:none;
+            }
+            
+           .examples {
+	         margin-top:15px;   
+            }
+            
+           .examples p{
+	         margin-bottom:0px;   
+            }
+            
+            ol li p {
+            	font-weight:normal;
+            	font-size: 14px;
+            }
+            
+            .accordion-heading .accordion-toggle {
+	            background: black;
+	            color: #ffffff;
+	            padding:1px 15px;
+            }
+            
+            .accordion-group{
+	            border-radius: 0;
+	            border:0;
+            }
+            
+            .hover {background:#bebebe;}
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+<div class="container">
+
+<div class="row" id="header">
+
+<div class="accordion" id="accordion2">
+                <div class="accordion-group span7">
+                  <div class="accordion-heading">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                      <h5>Instructions</h5>
+                    </a>
+                  </div>
+                  <div id="collapseOne" class="accordion-body collapse" style="height: 0px;">
+                    <div class="accordion-inner">
+                     <h5>
+					    <ol>
+					    	<li>Find a pen and paper.<p>(this is a digital + paper prototype)</p></li>
+					    	<li>Chose the 3 terms that best describe the priorities of your project. <p>Click a term for it's definition and a few examples.</p></li>
+						    <li>Write a quick sentence for each term and why it relates.</li>
+						    <li>Share with your team.</li>
+						</ol>
+					   </h5> 
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-group span5">
+                  <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                      <h5>Example</h5>
+                    </a>
+                  </div>
+                  <div id="collapseTwo" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                    <h5>Here are 2 sets of priorities for the same project.</h5>
+	      <p><em>A goal setting feature for a social healthcare app.</em></p>
+	      <ul>
+	      	<li><strong>Sharing</strong> the new goal with friends.</li>
+	      	<li>Giving the user <strong>power</strong> to set the right goal.</li>
+	      	<li>The new system is <strong>effective</strong> at helping the user stick to those goals.	</li>
+	      </ul>
+	      <ul>
+	      	<li>The new code needs to be <strong>autonomous</strong> from the existing base.</li>
+	      	<li><strong>Speed</strong> is an important factor in load times, since the new goal feature could be processing intensive.</li>
+			<li>Accessing the goal feature should be <strong>flexible</strong> and available across devices.</li>
+	      </ul>
+
+                    </div>
+                  </div>
+                </div>
+             </div>
+
+
+ </div> 
+
+
+<div class="row">
+      <div class="span12" id="cards">
+	      <div class="row">
+		    
+	      </div>
+      </div>
+ </div>
+
+
+
+<div class="row" id="footer">
+      <div class="span3" >
+	    <h6>Think Bigger Make Better prototype. <br/>&copy; 2013 <a href="http://tashwong.com/thesis">Tash Wong</a></h6>
+      </div>
+      <div class="span4 offset5" style="text-align:right;">
+	    <h6>Questions, comments?<br/>Send them to <a href="http://twitter.com/tashwong">@tashwong</a> or <a href="mailto:tash@tashwong.com">tash@tashwong.com</a></h6>
+      </div>
+ </div> 
+</div> <!-- /container -->
+
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+
+<div class="cardBackContainer"></div>
+<!--
+<div class="cardBack ${trait}">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">${trait}</h3>
+  </div>
+  <div class="modal-body">
+	  <p><strong>${trait}</strong> &middot; <em>${dictionary.pos}</em></p>
+	  <ul>{{each(i, value) dictionary.definition}}
+	  	<li>${value}</li>{{/each}}
+	  </ul>
+	  
+	  <div class="examples">Examples of ${trait} in the wild:<ul>
+	  {{each(i, example) examples}}<li>${example}</li>{{/each}}
+	  </ul>
+	  </div>
+  </div>
+</div> 
+--> 
+  
+  
+  
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+
+
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+   
+    <script src="js/vendor/jquery.tmpl.min.js"></script>
+      <!--   <script src="js/vendor/jquery.json-2.4.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+-->
+        <script src="js/cardsObject.js"></script>
+        <script src="js/main.js"></script>
+        
+        <script>
+	        
+			$(function(){
+				$('.trait').click(function(){
+					console.log('click');
+					$(this).css('width', '46%');
+				});
+			});	        
+        </script>
+        
+
+
+        <script>
+            var _gaq=[['_setAccount','UA-5098304-1'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>
