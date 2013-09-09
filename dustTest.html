@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Dust Test - TW</title>
+
+        <script src="js/dust-full-2.0.3.js"></script>
+        <script src="js/cardsObject.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+        </div>
+    </body>
+
+<script type="text/x-template" id="frontCard">
+    {#cards}
+    <div class="span3 card" id="{$idx}">
+      <div class="cardFront">
+          <h3>{trait}</h3>
+          <p>{prompt}</p>
+       </div>
+    </div>
+    {/cards}
+</script>
+
+<script type="text/x-template" id="backCard">
+ {#cards}
+    <div class="cardBack {trait}">
+        <div class="modal-header">
+             <h3 id="myModalLabel">{trait}</h3>
+        </div>
+        <div class="modal-body">
+            <p><strong>{trait}</strong> &middot;  <em>{dictionary.pos}</em></p>
+            <ul>{#dictionary.definition}
+                <li>{.}</li>{/dictionary.definition}
+            </ul>
+            
+            <div class="examples">
+            <p><strong>Examples:</strong></p>
+              <ul>{#examples}
+               <li>{.}</li>{/examples}
+              </ul>
+          </div>
+        </div>
+    </div>
+{/cards}
+    
+</script>
+
+
+<script>
+$(function(){
+
+    var backCardTest = $("#backCard").html();
+    backCardTest = "{#cards[3]}" + backCardTest + "{/cards[3]}" ;
+    console.log($("#backCard").html() );
+
+    
+    // Set up and compile the Dust.js template
+    var cardFronts = dust.compile($("#frontCard").html(),"cardFronts");
+    dust.loadSource(cardFronts);
+
+    var cardBacks = dust.compile($("#backCard").html(),"cardBacks");
+    dust.loadSource(cardBacks);
+  
+    // render the template like this
+    dust.render("cardFronts", cards, function(err, res){
+    $(".container").append(res);
+    });
+
+    // render the template like this
+    dust.render("cardBacks", cards, function(err, res){
+    $(".container").append(res);
+    });
+
+    
+    // //on click, display front/back of card
+    // $('.container').on('click', '.card', function () {
+    //     selectedItem = $.tmplItem(this);
+    //     selectedData = selectedItem.data;
+    //     currentTrait = selectedData.trait;
+        
+    //     $('.cardBack').hide();  
+    //     $('.' + currentTrait).show();
+            
+    //     $('#myModal').modal();
+
+    //   });       
+
+     
+    //   $('.container').on('mouseenter', '.card', function () {
+          
+    //       $(this).addClass('hover');
+    //       console.log('hover');
+          
+    //   });
+      
+    //       $('.container').on('mouseleave', '.card', function () {
+          
+    //       $(this).removeClass('hover');
+    //       console.log('no');
+          
+    //   });
+ });  
+ </script>  
+
+</html>

@@ -11,7 +11,6 @@
         <meta name="viewport" content="width=device-width">
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
-
         <style>
         	body {margin:0; padding:0;}
      
@@ -62,40 +61,6 @@
         </style>
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
         <link rel="stylesheet" href="css/main.css">
-
-        <script type="text/x-template" id="frontCard">
-            {#cards}
-            <div class="span3 card" id="{trait}">
-              <div class="cardFront">
-                  <h3>{trait}</h3>
-                  <p>{prompt}</p>
-               </div>
-            </div>
-            {/cards}
-        </script>
-
-        <script type="text/x-template" id="backCard">
-           {#cards}
-              <div class="cardBack" id="{trait}">
-                  <div class="modal-header">
-                       <h3 id="myModalLabel">{trait}</h3>
-                  </div>
-                  <div class="modal-body">
-                      <p><strong>{trait}</strong> &middot;  <em>{dictionary.pos}</em></p>
-                      <ul>{#dictionary.definition}
-                          <li>{.}</li>{/dictionary.definition}
-                      </ul>
-                      
-                      <div class="examples">
-                      <p><strong>Examples:</strong></p>
-                        <ul>{#examples}
-                         <li>{.}</li>{/examples}
-                        </ul>
-                    </div>
-                  </div>
-              </div>
-          {/cards} 
-        </script>
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
@@ -178,20 +143,46 @@
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
 
-  <div class="cardBackContainer"></div>
+<div class="cardBackContainer"></div>
+<!--
+<div class="cardBack ${trait}">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">${trait}</h3>
+  </div>
+  <div class="modal-body">
+	  <p><strong>${trait}</strong> &middot; <em>${dictionary.pos}</em></p>
+	  <ul>{{each(i, value) dictionary.definition}}
+	  	<li>${value}</li>{{/each}}
+	  </ul>
+	  
+	  <div class="examples">Examples of ${trait} in the wild:<ul>
+	  {{each(i, example) examples}}<li>${example}</li>{{/each}}
+	  </ul>
+	  </div>
+  </div>
+</div> 
+--> 
+  
+  
   
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>
-  <script src="js/cardsObject.js"></script>
+
+
 
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
-        <script src="js/dust-full-2.0.3.js"></script>
+   
+    <script src="js/vendor/jquery.tmpl.min.js"></script>
+      <!--   <script src="js/vendor/jquery.json-2.4.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+-->
         <script src="js/cardsObject.js"></script>
         <script src="js/main.js"></script>
         
