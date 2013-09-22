@@ -1,0 +1,36 @@
+
+
+<script type="text/x-template" id="frontCard">
+    {#cards}
+    <div class="span3 card" id="{$idx}">
+      <div class="cardFront">
+          <h3>{trait}</h3>
+          <p>{prompt}</p>
+       </div>
+    </div>
+    {/cards}
+</script>
+
+<script type="text/x-template" id="backCard">
+ {#cards}
+    <div class="cardBack {trait}">
+        <div class="modal-header">
+             <h3 id="myModalLabel">{trait}</h3>
+        </div>
+        <div class="modal-body">
+            <p><strong>{trait}</strong> &middot;  <em>{dictionary.pos}</em></p>
+            <ul>{#dictionary.definition}
+                <li>{.}</li>{/dictionary.definition}
+            </ul>
+            
+            <div class="examples">
+            <p><strong>Examples:</strong></p>
+              <ul>{#examples}
+               <li>{.}</li>{/examples}
+              </ul>
+          </div>
+        </div>
+    </div>
+{/cards}
+    
+</script>
